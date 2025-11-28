@@ -1,0 +1,30 @@
+✅ MODE 1 — VirtualBox mode (disable KVM)
+
+Use this when you want to run VirtualBox:
+
+sudo modprobe -r kvm_intel kvm
+
+
+Check:
+
+lsmod | grep kvm
+
+
+Should be empty.
+
+Now VirtualBox will work properly.
+
+🐳 MODE 2 — Docker Desktop mode (enable KVM)
+
+Use this when you want Docker Desktop, Android Studio emulator, QEMU, etc:
+
+sudo modprobe kvm
+sudo modprobe kvm_intel
+
+
+Check:
+
+lsmod | grep kvm
+
+
+Should show both loaded.
